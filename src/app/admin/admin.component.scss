@@ -1,0 +1,30 @@
+@import '../shared/style/variables';
+.nav{
+    margin: 30px 30px 0 10px;
+.nav__admim{
+    width: 250px;
+   
+
+    .link {
+        height: 50px;
+        width: 100%;
+        border: 1px solid gray;
+        text-decoration: none;
+        color: #000;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 3px;
+
+    }
+
+    .rout-active{
+        border: none;
+        border-top: 3px solid $primary;
+    }
+    
+    .link-bg{
+        background-color: $primary;
+    }
+   
+}
+}

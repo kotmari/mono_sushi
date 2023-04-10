@@ -1,0 +1,107 @@
+<header class="header">
+  <div class="header__inner">
+    <a [routerLink]="['/']" href="#" class="header__logo">
+      <img src="../../../assets/img/logo.svg" alt="" />
+    </a>
+    <nav class="menu">
+      <ul class="menu__list">
+        <li class="nav__item">
+          <a [routerLink]="['/discount']" routerLinkActive="rout-active" href="#" class ="card__box">
+            <div class="card">
+              <img
+                class="nav-img"
+                src="../../../assets/img/nav-img-gift.svg"
+                alt=""
+              /><span>Акції</span>
+            </div>
+          </a>
+        </li>
+        <li class="nav__item">
+          <a [routerLink]="['/product/roli']" routerLinkActive="rout-active" href="#" class ="card__box"
+            ><div class="card">
+              <img
+                class="nav-img"
+                src="../../../assets/img/nav-img-rolls.svg"
+                alt=""
+              /><span>Роли</span>
+            </div></a
+          >
+        </li>
+        <li class="nav__item">
+          <a [routerLink]="['/product/cetu']" routerLinkActive="rout-active" href="#" class ="card__box"
+            ><div class="card">
+              <img
+                class="nav-img"
+                src="../../../assets/img/nav-img-sets.svg"
+                alt=""
+              /><span>Сети</span>
+            </div></a
+          >
+        </li>
+        <li class="nav__item">
+          <a [routerLink]="['/product/drinks']" routerLinkActive="rout-active" href="#" class ="card__box"
+            ><div class="card">
+              <img
+                class="nav-img"
+                src="../../../assets/img/nav-img-drinks.svg"
+                alt=""
+              /><span>Напої</span>
+            </div></a
+          >
+        </li>
+        <li class="nav__item">
+          <a [routerLink]="['/product/sousi']" routerLinkActive="rout-active" href="#" class ="card__box"
+            ><div class="card">
+              <img
+                class="nav-img"
+                src="../../../assets/img/icon.svg"
+                alt=""
+              /><span>Соуси</span>
+            </div></a
+          >
+        </li>
+        <li class="nav-item">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="line">Інформація</span>
+          
+            </button>
+            <ul class="dropdown-menu">
+              <li><a [routerLink]="['/delivery']"
+                routerLinkActive="rout-active" class="dropdown-item" href="#">Доставка та оплата</a></li>
+              <li><a [routerLink]="['/about']"
+                routerLinkActive="rout-active" class="dropdown-item" href="#">Про нас</a></li>
+              <li><a [routerLink]="['/discount']" routerLinkActive="rout-active" class="dropdown-item" href="#">Акції</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav__item">
+          <button class="btn btn-small">
+            <img src="../../../assets/img/phone.svg" alt="" />
+            <span>МИ ЗАТЕЛЕФОНУЄМО</span>
+          </button>
+        </li>
+        <li class="secondary-address">
+          <a class="card__box header-phone" href="tel:0978780837">(097) 878 08 37</a>
+          <div class="">Працюємо з <b>11:00</b> до <b>22:30</b></div>
+        </li>
+        <li class="nav__item">
+          <button class="btn-user" [routerLink]="['/admin']"
+          routerLinkActive="rout-active">
+            <img src="../../../assets/img/user.svg" alt="" />
+          </button>
+        </li>
+
+      </ul>
+    </nav>
+    <div class="basket">
+      <img src="../../../assets/img/basket.svg" alt="" />
+      <p> 0 <span>грн</span></p>
+      <div class="count">
+        <span></span>
+      </div>
+   
+    </div>
+  </div>
+</header>
+

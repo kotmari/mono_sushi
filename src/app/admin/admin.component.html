@@ -1,0 +1,19 @@
+<div class="container-fluid nav">
+    <div class="d-flex align-items-start">
+        <div class="nav flex-column nav-pills nav__admim" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <button [routerLink]="['category']"
+          routerLinkActive="rout-active" class="nav-link link" type="button">Категорії</button>
+          <button [routerLink]="['product']"
+          routerLinkActive="rout-active"class="nav-link link" type="button">Продукти</button>
+          <button [routerLink]="['discount']"
+          routerLinkActive="rout-active"class="nav-link link" type="button">Акції</button>
+          <button [routerLink]="['order']"
+          routerLinkActive="rout-active" class="nav-link link" type="button">Замовлення</button>
+          <button [routerLink]="['']" class="nav-link link link-bg" type="button">Вихід</button>
+        </div>
+        <div class="tab-content w-100" id="v-pills-tabContent">
+            <router-outlet></router-outlet>
+               
+        </div>
+      </div>
+</div>

@@ -1,0 +1,110 @@
+<div class="row">
+    <p><a class="btn btn-add mb-3" 
+     (click)="toggleOpenForm()">Додати продукт</a></p>
+        <ng-container *ngIf="isOpen">
+         <div class="collapse" id="collapseExample" [ngClass]="{'show' : isOpen}">
+                <div class="col-12">
+                    <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+                       <div class="row"> 
+                        <div class="col mb-2 me-2">
+                            <label for="name" class="form-label">Категорія</label>
+                            <select formControlName="category" class="form-select">
+                              <option [ngValue]="category" 
+                              *ngFor="let category of adminCategories">{{ category.name }}
+                              </option>
+                            </select>
+                        </div>           
+                         <div class="col mb-2 me-2">
+                        <label for="name" class="form-label">Назва</label>
+                        <input formControlName="name" name="name" type="text"
+                          class="form-control" id="name"/>
+                      </div>
+                      <div class="col mb-2 me-2">
+                        <label for="path" class="form-label">Шлях</label>
+                        <input formControlName="path" name="path" type="text"
+                          class="form-control" id="path"/>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class=" col mb-2 me-2">
+                            <label for="description" class="form-label">Інгредієнти</label>
+                            <textarea formControlName="description" name="description" class="form-control"
+                              id="description" rows="3" placeholder="Інгредієнти..."></textarea>
+                          </div>
+                        <div class=" col mb-2 me-2">
+                           <label for="weight" class="form-label">Вага</label>
+                            <input formControlName="weight" name="weight" type="text" class="form-control" id="weight"/>
+                        </div>
+                        <div class="col mb-2">
+                           <label for="price" class="form-label">Ціна</label>
+                           <input formControlName="price" name="price" type="number" class="form-control" id="price"/>
+                        </div>
+                          
+                           </div>
+                          <ng-container *ngIf="!isUploaded">
+                          <div class="mb-3">
+                            <input class="form-control" type="file" (change)="uploadProduct($event)"/>
+                          </div>
+                          <!-- <div class="progress mb-3" role="progressbar" aria-label="Default striped example"
+                            aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar progress-bar-striped" [style.width.%]="uploadPercent"></div>
+                          </div> -->
+                        </ng-container>
+                        <ng-container *ngIf="isUploaded">
+                          <img [src]="valueByControl('imagePath')" width="100px" alt="" />
+                          <button type="button" class="btn btn-danger mb-3 w-100" (click)="deleteImage()" >
+                            Delete
+                          </button>
+                        </ng-container>
+                          <button [disabled]="productForm.invalid" type="submit"class="btn btn-primary mb-3 w-100">
+                          {{ editStatus ? "Save" : "Add" }}
+                        </button>
+                      </form>
+                  </div>
+              </div>
+        </ng-container>
+  
+
+     
+    <div class="col-12">
+      <table class="table table-hover">
+        <thead class="" >
+          <tr scope="row">
+            <th scope="col">№</th>
+            <th scope="col">Категорія</th>
+            <th scope="col">Назва</th>
+            <th scope="col">Інгредієнти</th>
+            <th scope="col">Вага</th>
+            <th scope="col">Ціна</th>
+            <th scope="col">Картинка</th>
+            <th scope="col">Дії</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border border-black" *ngFor="let product of adminProducts">
+            <td > № {{ product.id }}</td>
+            <td >{{ product.category.name }}</td>
+            <td> {{ product.name }} </td>
+            <td> {{ product.description}} </td>
+            <td> {{ product.weight }} </td>
+            <td> {{ product.price }} </td>
+            <td class="img" >
+              <img [src]="product.imagePath" alt="" height="50px" />
+            </td>
+            <td >
+              <button [disabled]=""(click)="editProduct(product)"
+                type="button" class="btn btn-admin mb-2">
+                Редагувати
+              </button>
+              <button [disabled]="editStatus" (click)="deleteProduct(product)"
+                type="button" class="btn btn-admin">
+                Видаляти
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+

@@ -1,0 +1,27 @@
+@import '../../shared/style/variables';
+
+.line{
+    margin: 10px auto;
+    width: 160px;
+    height: 4px;
+    background-color: $primary;
+    border-radius: 8px;
+}
+
+.discount{
+    font-size: 42px;
+    line-height: 1.2em;
+    font-weight: 800;
+    text-align: center;
+}
+
+.card{
+    border: none;
+}
+
+.card hr{
+    height: 4px;
+    background-color: $primary;
+    width: 100%;
+
+}

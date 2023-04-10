@@ -1,0 +1,44 @@
+  <nav class="navbar">
+    <div class="container-fluid border">
+        <a class="navbar-brand " href="#">
+            <img [routerLink]="['/']" src="../../../assets/img/logo.svg" alt="Logo" width="160" height="70">
+            <p>© 2023 Monosushi</p>
+         </a>
+         <div class="box__nav">
+            <div class="box__link">
+                <ul class="navbar-nav">
+                    <li class="nav-item footer-item">
+                      <a [routerLink]="['/discount']"
+                      routerLinkActive="rout-active" class="nav-link active" aria-current="page" href="#">Акції</a>
+                    </li>
+                    <li class="nav-item footer-item">
+                      <a [routerLink]="['/about']"
+                      routerLinkActive="rout-active" class="nav-link" href="#">Про нас</a>
+                    </li>
+                    <li [routerLink]="['/offerta']"
+                    routerLinkActive="rout-active" class="nav-item footer-item">
+                      <a class="nav-link" href="#">Оферта</a>
+                    </li>
+                  </ul>
+            </div>
+            <div class="box__pay"></div>
+            <div class="box__deliveri">
+                <h4>Точки самовивозу</h4>
+                <p>вул. Володимира Великого, 10в</p>
+                <p>вул. Чорновола, 95</p>
+            </div>
+            <div class="box__phone">
+                <h4>Оформити замовлення</h4>
+                <p>(097) 878 08 37</p>
+
+            </div>
+
+         </div>
+        
+
+          </div>
+     
+        
+        
+   
+  </nav>

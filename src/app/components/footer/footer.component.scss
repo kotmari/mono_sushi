@@ -1,0 +1,14 @@
+@import "../../shared/style/variables";
+
+.border{
+     margin-top: 25px;
+     display: flex;
+     justify-content: space-between;
+
+     .footer-item{
+        font-size: 24px;
+        font-weight: 600;
+     }
+
+
+}

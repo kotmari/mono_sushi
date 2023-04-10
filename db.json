@@ -1,0 +1,72 @@
+{
+  "discounts": [
+    {
+      "name": "Знижка 50%",
+      "title": "Знижка 50%",
+      "description": "отримай знижку тижня ",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fimg-50%25-697x379.jpg?alt=media&token=9889a049-39b1-4aa6-805d-9de26f75a686",
+      "id": 1
+    },
+    {
+      "name": "3+1",
+      "title": "3+1",
+      "description": "купи три позиції і отримай одну в подарунок ",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fimg3_1-697x379.jpg?alt=media&token=2bc80844-37fd-4fe7-b7bf-bbe0fdf31618",
+      "id": 2
+    }
+  ],
+  "categories": [
+    {
+      "name": "Роли",
+      "path": "rulls",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=4caa342f-495a-46cf-ab5c-2e9c1a674553",
+      "id": 1
+    },
+    {
+      "name": "Сети",
+      "path": "Sets",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=e685f017-06eb-41d7-8d8b-c9a4cc381b1b",
+      "id": 2
+    },
+    {
+      "name": "Напої",
+      "path": "drinks",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=1d114720-84c4-43d4-8b0c-04730ce126e2",
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "category": {
+        "name": "Роли",
+        "path": "rulls",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=4caa342f-495a-46cf-ab5c-2e9c1a674553",
+        "id": 1
+      },
+      "name": "Філадельфія з лососем",
+      "path": "rols",
+      "description": "Риc, крем сир, огірок, лосось",
+      "weight": "280 г",
+      "price": 268,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/image%2F1.-filadelfiya-z-lososem.jpg.pagespeed.ce.axvTz8qDqj.jpg?alt=media&token=d30f8d2d-fce8-4f57-b3bc-960b41b922a1",
+      "count": 1,
+      "id": 1
+    },
+    {
+      "category": {
+        "name": "Роли",
+        "path": "rulls",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=4caa342f-495a-46cf-ab5c-2e9c1a674553",
+        "id": 1
+      },
+      "name": "Каліфорнія з лососем",
+      "path": "rols",
+      "description": " Рис, спайсі соус, авокадо, огірок, лосось, кунжут",
+      "weight": "250 г",
+      "price": 254,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/image%2F2.-filadelfiya-v-kunzhuti.jpg.pagespeed.ce.OnHk5blNMI.jpg?alt=media&token=5d975513-da49-433b-bb03-275d73e39a53",
+      "count": 1,
+      "id": 2
+    }
+  ]
+}

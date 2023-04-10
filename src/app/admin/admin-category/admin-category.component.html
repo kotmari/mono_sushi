@@ -1,0 +1,147 @@
+<div class="row"><button (click)="addForm()"type="button" class="btn btn-add"> Додати категорію</button>
+  <form [formGroup]="categoryForm" (ngSubmit)="addCategory()">
+    <div *ngIf="addForms">
+     <div class="mb-3">
+       <label for="exampleFormControlInput1" class="form-label">Назва</label>
+       <input formControlName="name" type="text" class="form-control w-50" id="exampleFormControlInput1" placeholder="Введіть назву">
+     </div>
+     <div class="mb-3">
+       <label for="exampleFormControlInput1" class="form-label">Заголовок</label>
+       <input formControlName="path" type="" class="form-control w-50" id="exampleFormControlInput1" placeholder="Введіть заголовок">
+     </div>
+  
+     <ng-container *ngIf="!isUploaded">
+       <div class="mb-3">
+         <label for="formFile" class="form-label"
+           >Default file input example</label
+         >
+         <input
+           class="form-control w-50"
+           type="file"
+           id="formFile"
+           (change)="upload($event)"
+          
+         />
+       </div>
+     </ng-container>
+     <ng-container *ngIf="isUploaded">
+      <div class="d-flex flex-column">
+        <img [src]="valueByControl('imagePath')" alt="" width="150px" />
+        <button  type="button" class="btn btn-danger mb-3 w-50"
+          (click)="deleteImage()"> Delete </button>
+      </div>
+
+      </ng-container>
+      <button
+      [disabled]="categoryForm.invalid"
+      type="submit"
+      class="btn btn-primary mb-3 w-50"
+    >
+      {{editStatus ? "Save" : "Add"}}
+    </button>
+    </div>
+   </form>
+  <!-- <div class="col-6"  *ngIf="addForms">
+    <form [formGroup]="categoryForm" (ngSubmit)="addCategory()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Назва</label>
+        <input
+          formControlName="name"
+          name="name"
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder="Name here..."
+        />
+      </div>
+      <div class="mb-3">
+        <label for="path" class="form-label">Шлях</label>
+        <input
+          formControlName="path"
+          name="path"
+          type="text"
+          class="form-control"
+          id="path"
+          placeholder="Path..."
+        />
+        <ng-container *ngIf="!isUploaded">
+          <div class="mb-3">
+            <label for="formFile" class="form-label"
+              >Default file input example</label
+            >
+            <input
+              class="form-control"
+              type="file"
+              id="formFile"
+              (change)="upload($event)"
+            />
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isUploaded">
+         <img [src]="valueByControl('imagePath')" alt="" />
+          <button
+            type="button"
+            class="btn btn-danger mb-3 w-40"
+            (click)="deleteImage()"
+          >
+            Delete
+          </button>
+        </ng-container>
+
+        <button
+          [disabled]="categoryForm.invalid"
+          type="submit"
+          class="btn btn-primary mb-3 w-50"
+        >
+          {{editStatus ? "Save" : "Add"}}
+        </button>
+      </div>
+    </form>
+  </div> -->
+
+  <div class="category">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">№</th>
+          <th scope="col">Назва</th>
+          <th scope="col">Шлях</th>
+          <th scope="col">Зоображення</th>
+          <th scope="col">Дії</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of adminCategories">
+          <td> №{{ category.id }}</td>
+          <td>
+            {{ category.name }}
+          </td>
+          <td>
+            {{ category.path }}
+          </td>
+          <td>
+            <img [src]="category.imagePath" alt="" height="50px" />
+          </td>
+          <td>
+            <button
+              [disabled]=""
+              (click)="editCategory(category)"
+              type="button"
+              class="btn btn-admin me-2"
+            >
+              Редагувати
+            </button>
+            <button
+              [disabled]="editStatus"
+              (click)="deleteCategory(category)"
+              type="button"
+              class="btn btn-admin"
+            >
+              Видалити
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

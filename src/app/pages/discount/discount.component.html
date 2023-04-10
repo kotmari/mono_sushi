@@ -1,0 +1,36 @@
+<section class="container">
+    <div class="line"></div>
+    <h2 class="discount">Акції</h2>
+</section>
+<div class="container mt-3 mb-3">
+    <div class="row">
+      <ng-container *ngIf="userDiscounts.length > 0">
+        <div class="col-6 mt-3" *ngFor="let discount of userDiscounts">
+          <div class="card w-100">
+              <img [src]="discount.imagePath" class="card-img-top" alt="...">
+              <hr>
+              <div class="card-body text-center">
+                <a class="btn btn-warning" [routerLink]="['/discount', discount.id]">Дізнатися більше</a>
+              </div>
+            </div>
+      </div>
+      </ng-container>
+      <ng-container *ngIf="userDiscounts.length === 0">
+        <div class="card text-center">
+          <div class="card-header"></div>
+          <div class="card-body">
+            <h1>
+              Discounts not addet yet!
+            </h1>
+          </div>
+          <div class="card-footer text-muted"></div>
+        </div>
+    
+      </ng-container>
+      
+      
+        
+    </div>
+</div>
+
+
