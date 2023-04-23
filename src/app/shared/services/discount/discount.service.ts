@@ -18,6 +18,9 @@ export class DiscountService {
   getAll(): Observable<IDiscountResponse[]> {
     return this.http.get<IDiscountResponse[]>(this.api.discounts);
   }
+  getOne(id: number): Observable<IDiscountResponse>{
+    return this.http.get<IDiscountResponse>(`${this.api.discounts}/${id}`)
+  }
 
   create(discount: IDiscountRequest): Observable <IDiscountResponse>{
     return this.http.post<IDiscountResponse>(this.api.discounts, discount);

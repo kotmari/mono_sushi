@@ -1,1 +1,18 @@
-<p>discount-info works!</p>
+<div class="container-fluid" >
+    <div class="nav-item mb-3 mt-3" *ngIf="discount">
+        <ul class="d-flex list-inline justify-content-left">
+            <li class="list-inline-item me-3" [routerLink]="['/']" routerLinkActive="rout-active" >Головна</li>
+            <li class="list-inline-item me-3" [routerLink]="['/discount']" routerLinkActive="rout-active" >&bull; Акції</li>
+            <li class="list-inline-item">&bull; {{ discount.name }} </li>
+        </ul>
+    </div>
+    <div class="col-10 mx-auto" *ngIf="discount">
+        <div class="card w-100">
+            <img [src]="discount.imagePath" class="card-img-top" alt="discount.name">
+           
+            <div class="card-body text-left">
+                <p>{{discount.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>

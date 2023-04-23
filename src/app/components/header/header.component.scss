@@ -95,16 +95,38 @@
   .basket{
     width: 200px;
     background-color: $primary;
+    font-size: 18px;
+    font-weight: 600;
     margin: 0 0 0 15px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: relative;
 
     .basket img{
       width: 40px;
       height: 40px;
      }
+
+    .count{
+      position: absolute;
+      height: 20px;
+      width: 25px;
+      background-color: aliceblue;
+      top: 15px;
+      left: 50px;
+      border-radius: 50%;
+      text-align: center;
+      
+    }
   }
+}
+
+.modal-position{
+  width: 800px;
+  min-height: 450px;
+  top: 53px;
+  left: 700px;
 }
 
 

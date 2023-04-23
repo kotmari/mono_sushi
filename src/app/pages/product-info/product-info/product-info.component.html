@@ -1,0 +1,34 @@
+<div class="container" >
+    <div class="nav-item mb-3 mt-3">
+        <ul class="d-flex list-inline justify-content-left">
+            <li class="list-inline-item me-3" [routerLink]="['/']" routerLinkActive="rout-active" >Головна</li>
+            <li class="list-inline-item me-3" [routerLink]="['/product']" routerLinkActive="rout-active" >&bull; {{ currentProduct.category.name}}</li>
+            <li class="list-inline-item">&bull; {{ currentProduct.name }}</li>
+        </ul>
+    </div>
+    
+    <div class="col-12 mx-auto">
+        <div class="card" style="height: 350px;" >
+            <div class="row g-0">
+              <div class="col-4">
+                <img [src]="currentProduct.imagePath" class="img-fluid rounded-start m-4" [alt]="currentProduct.name">
+              </div>
+              <div class="col-7">
+                  <div class="card-body">
+                  <h3 class="card-title">{{ currentProduct.name }}</h3>
+                  <p class="card-text mb-3"><span>Склад: </span>{{ currentProduct.description }}</p>
+                  <p class="card-text mb-3"> <span>Вага: </span> {{currentProduct.weight}}</p>
+                  <div class="d-flex justify-content-space-between">
+                    <h4 class="card-title pt-2 me-3">{{ currentProduct.price*currentProduct.count }}грн </h4>
+                    <div class="btn-group me-3" role="group" aria-label="Basic example">
+                      <button (click)="productCount(currentProduct, false)" type="button" class="btn btn-outline-primary">-</button>
+                      <input type="text" class="form-control" [value]="currentProduct.count" style="width: 35px;">
+                      <button (click)="productCount(currentProduct, true)" type="button" class="btn btn-outline-primary">+</button>
+                      </div>
+                    <a class="btn btn-outline-primary" (click)="addToBasket(currentProduct)">Замовити</a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

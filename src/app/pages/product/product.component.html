@@ -33,37 +33,32 @@
 
 <div class="container mt-3 mb-3">
     <div class="row">
-      <ng-container *ngIf="userProduct.length > 0">
-        
-          <div class="col-sm-6 col-lg-4 col-xl-3 card_product" *ngFor="let product of userProduct">
+       <div class="col-3 mt-3 card_product" *ngFor="let product of userProduct">
             <div class="product_image-wrap">
-              <a class="product_image" href= "#" >
-                <img [src]="product.imagePath" class="card-img-top mb-3 mt-3" width="250px" alt="...">
+              <a [routerLink]="['/product/'+product.category.path, product.id]" class="product_image" href= "#" >
+                <img [src]="product.imagePath" class="card-img-top" alt="product.name">
               </a>
             </div>
             <div class="product_title-wrap">
               <div class="product_title title h5 m-auto">
-                <a href="#">{{product.name}}</a>
+                <a [routerLink]="['/product/'+product.category.path, product.id]" href="#">{{product.name}}</a>
               </div>
               </div>
               <div class="product_desc">
-                <p>{{product.description}}</p>
+                <p  class="card-text" style="min-height: 95px;" >{{product.description}}</p>
                 <div class="product_size"><span class="size">{{product.weight}}</span></div>
                 </div>
-                <div class="product_controls">
-                  <div class="product_price-wrap">
-                      <div class="product_price"><b class="price">{{product.price}}</b> грн</div>
+                <div class="product_controls d-flex justify-content-space-between">
+                    <h4 class="card-title pt-2">{{ product.price * product.count }}грн </h4>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button (click)="productCount(product, false)" type="button" class="btn btn-outline-primary">-</button>
+                      <input type="text" class="form-control" [value]="product.count" style="width: 35px;">
+                      <button (click)="productCount(product, true)" type="button" class="btn btn-outline-primary">+</button>
+                      </div>
+                    <a class="btn btn-outline-primary" (click)="addToBasket(product)">Замовити</a>
                   </div>
-                  <div class="thumb-input-number">
-                    <button type="button" class="decrement">-</button>
-                    <input value="1" readonly="" class="product-qty" tabindex="-1" max="999">
-                    <button type="button" class="increment">+</button>
-                </div>
-                  
-                  <button class="btn order-btn add-to-cart-btn">Замовити</button>
-                </div>
             </div>
       
-      </ng-container>
+
     </div>
 </div>

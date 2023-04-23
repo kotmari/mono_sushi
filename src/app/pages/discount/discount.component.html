@@ -5,12 +5,13 @@
 <div class="container mt-3 mb-3">
     <div class="row">
       <ng-container *ngIf="userDiscounts.length > 0">
-        <div class="col-6 mt-3" *ngFor="let discount of userDiscounts">
+        <div class="col-6 mt-2" *ngFor="let discount of userDiscounts">
           <div class="card w-100">
               <img [src]="discount.imagePath" class="card-img-top" alt="...">
               <hr>
               <div class="card-body text-center">
-                <a class="btn btn-warning" [routerLink]="['/discount', discount.id]">Дізнатися більше</a>
+                <h2 class="card-title title_discount">{{ discount.name }}</h2>
+                <a class="btn btn_discount mt-2" [routerLink]="['/discount', discount.id]">Дізнатися більше</a>
               </div>
             </div>
       </div>

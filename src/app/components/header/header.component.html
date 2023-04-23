@@ -17,7 +17,7 @@
           </a>
         </li>
         <li class="nav__item">
-          <a [routerLink]="['/product/roli']" routerLinkActive="rout-active" href="#" class ="card__box"
+          <a [routerLink]="['/product/rolls']" routerLinkActive="rout-active" href="#" class ="card__box"
             ><div class="card">
               <img
                 class="nav-img"
@@ -28,7 +28,7 @@
           >
         </li>
         <li class="nav__item">
-          <a [routerLink]="['/product/cetu']" routerLinkActive="rout-active" href="#" class ="card__box"
+          <a [routerLink]="['/product/setu']" routerLinkActive="rout-active" href="#" class ="card__box"
             ><div class="card">
               <img
                 class="nav-img"
@@ -94,14 +94,44 @@
 
       </ul>
     </nav>
-    <div class="basket">
+    <div data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="basket">
       <img src="../../../assets/img/basket.svg" alt="" />
-      <p> 0 <span>грн</span></p>
+      <p> {{ total }} <span>грн</span></p>
       <div class="count">
-        <span></span>
+        <span>{{count}}</span>
       </div>
+      <div class="modal fade modal-position" id="staticBackdrop">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex flex-column" *ngIf= "baskets.length > 0">
+              <ng-container  *ngFor="let basket of baskets">
+                <div class="d-flex flex-row mb-2 align-items-center">
+                  <img style="width: 80px;" class="me-3" [src]="basket.imagePath" alt="basket.name" />
+                  <h6 class="modal-title fs-6" id="staticBackdropLabel">{{ basket.name}}</h6>
+                  <div class="btn-group me-3" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-primary" style="width: 25px; height: 25px;">-</button>
+                    <input [value] ="basket.count" style="width: 30px; height: 25px;">
+                    <button  type="button" class="btn btn-outline-primary" style="width: 25px; height: 25px;">+</button>
+                  </div>
+                  <p class="me-2 fs-6">{{ basket.price * basket.count}} <span>грн</span></p>
+                  <button type="button" class="btn btn-outline-primary">Видалити</button>
+                </div>
+             </ng-container>
+            </div>
+            <div class="modal-footer">
+              <p> {{ total }} <span>грн</span></p>
+              <button type="button" class="btn btn-primary fs-6">Замовити</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
    
     </div>
   </div>
 </header>
+
 

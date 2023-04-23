@@ -47,5 +47,36 @@
 </div>
 
 <app-product></app-product>
+<div class="container mt-3 mb-3 m-auto">
+  <div class="row">
+     <div class="col-3 mt-3 card_product" *ngFor="let product of allProduct">
+          <div class="product_image-wrap">
+            <a [routerLink]="['/product/'+product.category.path, product.id]" class="product_image" href= "#" >
+              <img [src]="product.imagePath" class="card-img-top" alt="product.name">
+            </a>
+          </div>
+          <div class="product_title-wrap">
+            <div class="product_title title h5 m-auto">
+              <a [routerLink]="['/product/'+product.category.path, product.id]" href="#">{{product.name}}</a>
+            </div>
+            </div>
+            <div class="product_desc">
+              <p  class="card-text" style="min-height: 95px;" >{{product.description}}</p>
+              <div class="product_size"><span class="size">{{product.weight}}</span></div>
+              </div>
+              <div class="product_controls d-flex justify-content-space-between">
+                  <h4 class="card-title pt-2">{{ product.price * product.count }} грн </h4>
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <button (click)="productCount(product, false)" type="button" class="btn btn-outline-primary">-</button>
+                    <input type="text" class="form-control" [value]="product.count" style="width: 35px;">
+                    <button (click)="productCount(product, true)" type="button" class="btn btn-outline-primary">+</button>
+                    </div>
+                  <a class="btn btn-outline-primary" (click)="addToBasket(product)">Замовити</a>
+                </div>
+          </div>
+    
+
+  </div>
+</div>
 
 

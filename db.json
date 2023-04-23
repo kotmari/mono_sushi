@@ -18,13 +18,13 @@
   "categories": [
     {
       "name": "Роли",
-      "path": "rulls",
+      "path": "rolls",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=4caa342f-495a-46cf-ab5c-2e9c1a674553",
       "id": 1
     },
     {
       "name": "Сети",
-      "path": "Sets",
+      "path": "setu",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=e685f017-06eb-41d7-8d8b-c9a4cc381b1b",
       "id": 2
     },
@@ -39,12 +39,12 @@
     {
       "category": {
         "name": "Роли",
-        "path": "rulls",
+        "path": "rolls",
         "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=4caa342f-495a-46cf-ab5c-2e9c1a674553",
         "id": 1
       },
       "name": "Філадельфія з лососем",
-      "path": "rols",
+      "path": "rolls",
       "description": "Риc, крем сир, огірок, лосось",
       "weight": "280 г",
       "price": 268,
@@ -55,18 +55,50 @@
     {
       "category": {
         "name": "Роли",
-        "path": "rulls",
+        "path": "rolls",
         "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=4caa342f-495a-46cf-ab5c-2e9c1a674553",
         "id": 1
       },
       "name": "Каліфорнія з лососем",
-      "path": "rols",
+      "path": "rolls",
       "description": " Рис, спайсі соус, авокадо, огірок, лосось, кунжут",
       "weight": "250 г",
       "price": 254,
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/image%2F2.-filadelfiya-v-kunzhuti.jpg.pagespeed.ce.OnHk5blNMI.jpg?alt=media&token=5d975513-da49-433b-bb03-275d73e39a53",
       "count": 1,
       "id": 2
+    },
+    {
+      "category": {
+        "name": "Роли",
+        "path": "rolls",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=4caa342f-495a-46cf-ab5c-2e9c1a674553",
+        "id": 1
+      },
+      "name": "Філадельфія з вугрем",
+      "path": "rolls",
+      "description": "Рис, крем сир, авокадо, вугор, унагі соус, кунжут",
+      "weight": "280 г",
+      "price": 339,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/image%2F4.-filadelfiya-z-vugr.jpg?alt=media&token=0392432e-b5da-44ca-a016-96dd3e946282",
+      "count": 1,
+      "id": 3
+    },
+    {
+      "category": {
+        "name": "Сети",
+        "path": "setu",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=e685f017-06eb-41d7-8d8b-c9a4cc381b1b",
+        "id": 2
+      },
+      "name": "Сет Філадельфія",
+      "path": "setu",
+      "description": " Філадельфія: з лососем/в кунжуті/з тунцем/з вугрем",
+      "weight": "1070г",
+      "price": 1075,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/image%2Fimgonline-com-ua-compressed-jknw6idh54664-scaled.jpg?alt=media&token=ace34292-f6da-4ce4-8c52-9702af4062b9",
+      "count": 1,
+      "id": 4
     }
   ]
 }

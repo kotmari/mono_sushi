@@ -29,6 +29,7 @@ import { AdminComponent } from './admin/admin.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { ProductInfoComponent } from './pages/product-info/product-info/product-info.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     AdminDiscountComponent,
     AdminNewsComponent,
     AdminOrdensComponent,
-    AdminComponent
+    AdminComponent,
+    ProductInfoComponent
   ],
   imports: [
     BrowserModule,
