@@ -9,7 +9,7 @@
           routerLinkActive="rout-active"class="nav-link link" type="button">Акції</button>
           <button [routerLink]="['order']"
           routerLinkActive="rout-active" class="nav-link link" type="button">Замовлення</button>
-          <button [routerLink]="['']" class="nav-link link link-bg" type="button">Вихід</button>
+          <button (click)="logout()" class="nav-link link link-bg" type="button">Вихід</button>
         </div>
         <div class="tab-content w-100" id="v-pills-tabContent">
             <router-outlet></router-outlet>

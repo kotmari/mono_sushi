@@ -85,10 +85,17 @@
           <a class="card__box header-phone" href="tel:0978780837">(097) 878 08 37</a>
           <div class="">Працюємо з <b>11:00</b> до <b>22:30</b></div>
         </li>
-        <li class="nav__item">
-          <button class="btn-user" [routerLink]="['/admin']"
+        <li class="nav__item" *ngIf="!isLogin">
+          <button class="btn-user" [routerLink]="['/auth']"
           routerLinkActive="rout-active">
             <img src="../../../assets/img/user.svg" alt="" />
+          </button>
+        </li>
+        <li class="nav__item" *ngIf="isLogin">
+          <button class="btn-user" [routerLink]="['/' + loginUrl]"
+          routerLinkActive="rout-active">
+            <img src="../../../assets/img/user.svg" alt="" />
+            <span>{{ loginPage }}</span>
           </button>
         </li>
 
@@ -123,7 +130,8 @@
             </div>
             <div class="modal-footer">
               <p> {{ total }} <span>грн</span></p>
-              <button type="button" class="btn btn-primary fs-6">Замовити</button>
+              <button [routerLink]="['/checkaut']"
+              routerLinkActive="rout-active" type="button" class="btn btn-primary fs-6">Замовити</button>
             </div>
           </div>
         </div>

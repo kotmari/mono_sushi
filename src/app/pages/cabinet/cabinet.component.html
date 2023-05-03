@@ -1,0 +1,27 @@
+<section class="container">
+    <div class="line"></div>
+    <h2 class="discount">Особистий кабінет</h2>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                <button type="button" class="btn btn-add mb-4">Особисті дані</button>
+                <button type="button" class="btn btn-add mb-4">Замовлення</button>
+                <button (click)="logout()" type="button" class="btn btn-add">Вихід</button>
+              </div>
+        </div>
+        <div class="col-8 mt-5">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" >
+                <label for="floatingInput">FullName</label>
+              </div>
+              <div class="form-floating">
+                <input type="tel" class="form-control" id="floatingPassword">
+                <label for="floatingPassword">PHONE</label>
+              </div>
+
+        </div>
+      </div>
+</div>

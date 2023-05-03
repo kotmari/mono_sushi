@@ -1,0 +1,32 @@
+@import '../../shared/style/variables';
+
+.line{
+    margin: 10px auto;
+    width: 380px;
+    height: 4px;
+    background-color: $primary;
+    border-radius: 8px;
+}
+
+.discount{
+    font-size: 42px;
+    line-height: 1.2em;
+    font-weight: 800;
+    text-align: center;
+}
+
+.btn-add{
+    width: 250px;
+    height: 50px;
+    border: 2px solid $primary;
+    font-size: 26px;
+    font-weight: 600;
+    border-radius: 8px;
+    margin: 30px 0 20px 10px;
+            
+}
+
+.btn-add:hover{
+    background-color: $primary;
+    border: none;
+}

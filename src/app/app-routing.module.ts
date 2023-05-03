@@ -20,6 +20,9 @@ import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
 import { AdminOrdensComponent } from './admin/admin-ordens/admin-ordens.component';
 import { DiscountInfoResolver } from './shared/services/discount/discount-info.resolver';
 import { ProductInfoResolver } from './shared/services/product/product-info.resolver';
+import { AuthGuard } from './shared/guards/auth/auth.guard';
+import { AuthorizationComponent } from './pages/authorization/authorization/authorization.component';
+import { CabinetComponent } from './pages/cabinet/cabinet.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -36,7 +39,9 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: 'offerta', component: OffertaComponent},
   { path: 'checkaut', component: CheckautComponent},
-  { path: 'admin', component: AdminComponent, children: [
+  { path: 'auth', component: AuthorizationComponent},
+  { path: 'cabinet', component: CabinetComponent},
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children: [
     { path: 'category', component: AdminCategoryComponent},
     { path: 'product', component: AdminProductComponent},
     { path: 'discount', component: AdminDiscountComponent},
