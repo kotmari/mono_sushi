@@ -85,12 +85,18 @@
           <a class="card__box header-phone" href="tel:0978780837">(097) 878 08 37</a>
           <div class="">Працюємо з <b>11:00</b> до <b>22:30</b></div>
         </li>
-        <li class="nav__item" *ngIf="!isLogin">
+        <!-- <li class="nav__item" *ngIf="!isLogin">
           <button class="btn-user" [routerLink]="['/auth']"
           routerLinkActive="rout-active">
             <img src="../../../assets/img/user.svg" alt="" />
           </button>
+        </li> -->
+        <li class="nav__item" *ngIf="!isLogin">
+          <button  class="btn-user" (click)="openDialog()" >
+            <img src="../../../assets/img/user.svg" alt="" />
+          </button>
         </li>
+       
         <li class="nav__item" *ngIf="isLogin">
           <button class="btn-user" [routerLink]="['/' + loginUrl]"
           routerLinkActive="rout-active">

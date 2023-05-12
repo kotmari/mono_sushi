@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ROLE } from 'src/app/shared/constants/constant';
 import { IProductResponse } from 'src/app/shared/interface/product/product.interface';
 import { AccountService } from 'src/app/shared/services/account/account.service';
 import { OrderService } from 'src/app/shared/services/order/order.service';
+import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
 
 
 @Component({
@@ -21,7 +23,8 @@ export class HeaderComponent implements  OnInit{
 
   constructor(
     private orderService: OrderService,
-    private accountService: AccountService
+    private accountService: AccountService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -85,5 +88,14 @@ export class HeaderComponent implements  OnInit{
       this.checkUserLogin();
     })
   }
+
+  openDialog(): void{
+    this.dialog.open(AuthDialogComponent, {
+      backdropClass: 'dialog-back',
+      panelClass: 'auth-dialog',
+      autoFocus: false
+    });
+  }
+  
 
 }

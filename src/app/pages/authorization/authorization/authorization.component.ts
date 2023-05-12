@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
+import { doc, docData, Firestore } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ROLE } from 'src/app/shared/constants/constant';
 
 import { AccountService } from 'src/app/shared/services/account/account.service';
@@ -18,13 +21,15 @@ export class AuthorizationComponent implements OnInit {
 
   constructor (
     private fb: FormBuilder,
+    private auth: Auth,
+    private afs: Firestore,
     private accountService: AccountService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
     this.initAuthForm();
-    console.log( this.initAuthForm())
   }
 
   initAuthForm(): void{
@@ -34,22 +39,28 @@ export class AuthorizationComponent implements OnInit {
     })
   }
 
-  login(): void{
-    this.accountService.login(this.authForm.value).subscribe(data => {
-      console.log(data);
-      if (data && data.length >0){
-        const user = data [0];
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        this.accountService.isUserLogin$.next(true);
-        if (user && user.role === ROLE.USER){
-          this.router.navigate(['/cabinet']);
-        }else if (user && user.role === ROLE.ADMIN){
-          this.router.navigate(['/admin']);
-        }
-     }
-    }, (e) => {
-      console.log(e)
+  loginUser(): void{
+    const { email, password } =  this.authForm.value;
+    this.login(email, password).then(() => {
+      this.toastr.info('User successfully login');
+    }).catch(e => {
+      this.toastr.error(e.message);
     })
-  
+  }
+
+  async login(email: string, password: string): Promise<any>{
+    const credential = await signInWithEmailAndPassword(this.auth, email, password);
+    docData(doc(this.afs, 'users', credential.user.uid)).subscribe(user => {
+      const currentUser = { ...user, uid: credential.user.uid };
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+      if (user && user['role'] === ROLE.USER){
+        this.router.navigate(['/cabinet']);
+        }else if (user && user['role'] === ROLE.ADMIN){
+        this.router.navigate(['/admin']);
+        }
+        this.accountService.isUserLogin$.next(true);
+    }, (e) => {
+      console.log('error', e);
+    })
   }
 }

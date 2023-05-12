@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import './app/shared/style/base';
 @import 'ngx-toastr/toastr';
+@import 'app/shared/style/theme-materil';
+
 
 body{
     width: 100%;
