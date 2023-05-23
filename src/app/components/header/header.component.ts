@@ -1,10 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, DialogPosition } from '@angular/material/dialog';
 import { ROLE } from 'src/app/shared/constants/constant';
 import { IProductResponse } from 'src/app/shared/interface/product/product.interface';
 import { AccountService } from 'src/app/shared/services/account/account.service';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
+import { ProductService } from '../../shared/services/product/product.service';
+import { Router } from '@angular/router';
+import { BasketDialogComponent } from '../basket-dialog/basket-dialog.component';
+import { ICategoryResponse } from '../../shared/interface/category/categori.interface';
+import { CategoryService } from '../../shared/services/category/category.service';
+import { PhoneDialogComponent } from '../phone-dialog/phone-dialog.component';
 
 
 @Component({
@@ -14,7 +20,9 @@ import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
 })
 export class HeaderComponent implements  OnInit{
 
+
   public baskets: Array<IProductResponse> = [];
+  public navCategory: Array<ICategoryResponse>=[];
   public total = 0;
   public count = 0;
   public isLogin = false;
@@ -22,17 +30,29 @@ export class HeaderComponent implements  OnInit{
   public loginPage = '';
 
   constructor(
+    private productService: ProductService,
+    private categoryService: CategoryService,
     private orderService: OrderService,
     private accountService: AccountService,
-    public dialog: MatDialog
-  ) {}
+    private router: Router,
+    private dialog: MatDialog
+  ) {
+  }
 
   ngOnInit(): void {
+    this.loadNavCategory();
     this.loadBasket();
     this.updateBasket();
     this.checkUserLogin();
     this.checkUpdatesUserLogin();
-    
+
+  }
+
+  loadNavCategory():void{
+    this.categoryService.getAll().subscribe((data) => {
+      console.log(data);
+      this.navCategory = data;
+    })
   }
 
   loadBasket(): void {
@@ -96,6 +116,32 @@ export class HeaderComponent implements  OnInit{
       autoFocus: false
     });
   }
-  
 
-}
+  openDialogBasket(): void {
+    const dialogConfig = new MatDialogConfig();
+    const position: DialogPosition = {
+      top: '80px',
+      right: '0'
+    };
+    dialogConfig.position = position;
+    dialogConfig.backdropClass = 'dialog-back';
+    dialogConfig.panelClass = 'basket-dialog';
+    dialogConfig.autoFocus = false;
+
+    this.dialog.open(BasketDialogComponent, dialogConfig);
+  }
+
+  openPhoneDialog() {
+    const dialogRef = this.dialog.open(PhoneDialogComponent, {
+      backdropClass: 'dialog-back',
+      panelClass: 'auth-dialog',
+      autoFocus: false
+    }).afterClosed().subscribe(result => {
+      console.log(result);
+    })
+  }
+
+
+
+
+  }

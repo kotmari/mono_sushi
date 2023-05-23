@@ -71,3 +71,15 @@ $custom-theme: mat.define-light-theme($custom-theme-primary, $custom-theme-accen
     width: 600px;
     min-height: 400px;
 }
+
+.basket-dialog {
+  min-width: 700px;
+  min-height: 400px;
+}
+
+.auth-dialog {
+  width: 500px;
+  min-height: 350px;
+  margin: 0 auto;
+}
+

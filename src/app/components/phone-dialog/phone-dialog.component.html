@@ -1,0 +1,29 @@
+<ng-container>
+  <div class="call__icon">
+    <mat-icon mat-dialog-close >close</mat-icon>
+  </div>
+  <div class="call__title">
+    <h2>Ми зателефонуємо</h2>
+    <p>Залиште номер телефону і наші менеджери зв'яжуться з вами</p>
+  </div>
+  <form >
+    <div class="form-group">
+      <mat-form-field appearance="fill" color="primary">
+        <mat-label>Ваше Ім'я</mat-label>
+        <input matInput type="text" >
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="example-full-width">
+        <mat-label>Ваш номер телефону</mat-label>
+        <span matPrefix>+3&nbsp;</span>
+        <input type="tel" matInput placeholder="555-555-1234">
+        <mat-icon matSuffix>phone</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="call__btn">
+      <button class="btn" mat-raised-button color="primary" type="button">Надіслати</button>
+    </div>
+  </form>
+</ng-container>
+

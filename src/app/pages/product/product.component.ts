@@ -11,16 +11,17 @@ import { ProductService } from 'src/app/shared/services/product/product.service'
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit, OnDestroy{
- 
+
   public userProduct: Array <IProductResponse> = [];
   private eventSubscription!: Subscription;
+  public currentCategoryName!: string;
 
-    constructor ( 
+    constructor (
     private productService: ProductService,
     private orderService: OrderService,
     private activatedRoute: ActivatedRoute,
     private router: Router
-    
+
     ){
       this.eventSubscription = this.router.events.subscribe((event) =>{
         if(event instanceof NavigationEnd){
@@ -39,11 +40,8 @@ export class ProductComponent implements OnInit, OnDestroy{
     const categoryName = this.activatedRoute.snapshot.paramMap.get('category') as string;
     this.productService.getAllByCategory(categoryName).subscribe(date => {
       this.userProduct = date;
+      this.currentCategoryName = this.userProduct[0].category.name;
     })
-  }
-
-  ngOnDestroy(): void {
-    this.eventSubscription.unsubscribe();
   }
 
   productCount(product: IProductResponse, value: boolean): void{
@@ -71,6 +69,10 @@ export class ProductComponent implements OnInit, OnDestroy{
       localStorage.setItem('basket', JSON.stringify(basket));
       product.count = 1;
       this.orderService.changeBasket.next(true);
+  }
+
+  ngOnDestroy(): void {
+    this.eventSubscription.unsubscribe();
   }
 
 

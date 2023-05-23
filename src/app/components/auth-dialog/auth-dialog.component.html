@@ -1,8 +1,8 @@
 <div class="icon">
     <mat-icon aria-hidden="false" aria-label="Example close icon" fontIcon="close" mat-dialog-close></mat-icon>
 </div>
-    
-<form [formGroup]="authForm"  *ngIf="!isLogin" >
+
+<form [formGroup]="loginForm"  *ngIf="!isLogin" >
     <h2>Вхід в кабінет</h2>
     <div class="form-group">
         <mat-form-field appearance="fill">
@@ -26,7 +26,7 @@
 
 
 
-<form [formGroup]="registrForm"  *ngIf="isLogin" >
+<form [formGroup]="registerForm"  *ngIf="isLogin" >
     <h2>Зареєструватися</h2>
     <div class="form-group">
         <mat-form-field appearance="fill">
@@ -53,13 +53,18 @@
     <div class="form-group">
         <mat-form-field appearance="fill">
             <mat-label>Пароль</mat-label>
-            <input matInput type="password" formControlName="password" placeholder="Enter password...">
+            <input (input) = "checkConfirmedPassword()" matInput
+                   type="password" formControlName="password" placeholder="Enter password...">
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Повторіть пароль</mat-label>
-            <input matInput type="password" formControlName="password" placeholder="Perid password...">
+            <input (input) = "checkConfirmedPassword()"
+                   matInput type="password" formControlName="confirmedPassword" placeholder="repeat password...">
           </mat-form-field>
     </div>
+  <mat-error *ngIf="checkVisibilityError('confirmedPassword', 'matchError')">
+    "Confirmed password required"
+  </mat-error>
     <div class="example-button-row">
         <button mat-raised-button color="primary" (click)="registerUser()">Зареєструватися</button>
     </div>

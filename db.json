@@ -13,6 +13,13 @@
       "description": "купи три позиції і отримай одну в подарунок ",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fimg3_1-697x379.jpg?alt=media&token=2bc80844-37fd-4fe7-b7bf-bbe0fdf31618",
       "id": 2
+    },
+    {
+      "name": "День народження з Моносуші",
+      "title": "День народження з Моносуші",
+      "description": "При оформленні замовлення вкажіть промокод “День народження” та отримайте “Запечений сет” безкоштовно до Вашого замовлення.",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fimg3_1-697x379.jpg?alt=media&token=f819d072-0fcc-48ba-941c-ccab8f50962d",
+      "id": 3
     }
   ],
   "categories": [
@@ -33,6 +40,12 @@
       "path": "drinks",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=1d114720-84c4-43d4-8b0c-04730ce126e2",
       "id": 3
+    },
+    {
+      "name": "Соуси",
+      "path": "sousi",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Ficon-sous.svg?alt=media&token=a8b94998-7fc6-4c6e-a2ca-d5bcfe9a3154",
+      "id": 4
     }
   ],
   "products": [
@@ -103,7 +116,7 @@
   ],
   "auth": [
     {
-      "id":1,
+      "id": 1,
       "email": "admin@gmail.com",
       "password": "1111",
       "fullName": "Petro Petriv",

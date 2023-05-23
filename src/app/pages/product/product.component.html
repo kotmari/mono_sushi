@@ -35,7 +35,7 @@
     <div class="row">
        <div class="col-3 mt-3 card_product" *ngFor="let product of userProduct">
             <div class="product_image-wrap">
-              <a [routerLink]="['/product/'+product.category.path, product.id]" class="product_image" href= "#" >
+              <a [routerLink]="['/product/' +product.category.path, product.id]" class="product_image" href= "#" >
                 <img [src]="product.imagePath" class="card-img-top" alt="product.name">
               </a>
             </div>
@@ -58,7 +58,7 @@
                     <a class="btn btn-outline-primary" (click)="addToBasket(product)">Замовити</a>
                   </div>
             </div>
-      
+
 
     </div>
 </div>

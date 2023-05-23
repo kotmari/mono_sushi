@@ -1,0 +1,28 @@
+<div class="icon">
+  <mat-icon aria-hidden="false" aria-label="Example close icon" fontIcon="close" mat-dialog-close></mat-icon>
+</div>
+<div mat-dialog-content *ngIf= "baskets.length > 0">
+      <mat-card  *ngFor="let basket of baskets">
+      <mat-card-content>
+        <div class="basket__content">
+          <img style="width: 120px;" class="me-3" [src]="basket.imagePath" alt="basket.name" />
+          <mat-card-title> {{ basket.name}} </mat-card-title>
+        </div>
+          <mat-button-toggle-group>
+            <mat-button-toggle (click)="productCount(basket, false)">-</mat-button-toggle>
+            <input [value] ="basket.count" class="count">
+            <mat-button-toggle (click)="productCount(basket, true)" >+</mat-button-toggle>
+            </mat-button-toggle-group>
+          <mat-card-title> {{ basket.price * basket.count}} <span>грн</span> </mat-card-title>
+          <mat-icon (click)="deleteBasketProduct(basket)">delete</mat-icon>
+      </mat-card-content>
+    </mat-card>
+  <mat-dialog-actions align="end">
+    <mat-card-title>Сума  {{ total }} <span>грн</span></mat-card-title>
+    <button [routerLink]="['/checkaut']"
+            routerLinkActive="rout-active"
+            type="button" class="btn btn_check fs-6 m-2" mat-dialog-close>Замовити</button>
+  </mat-dialog-actions>
+</div>
+
+

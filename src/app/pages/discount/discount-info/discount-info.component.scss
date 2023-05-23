@@ -1,10 +1,10 @@
-@import '../../shared/style/variables';
+@import '../../../shared/style/variables';
 
 .rout-active {
     cursor: pointer;
     font-weight: 800;
     border-bottom: 2px solid white;
-    
+
 }
 
 .rout-active:hover {

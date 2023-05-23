@@ -16,10 +16,10 @@ export class AdminComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    
+
   }
   logout(): void{
-    this.router.navigate(['/']);
+    this.router.navigate(['home']);
     localStorage.removeItem('currentUser');
     this.accountService.isUserLogin$.next(true);
   }

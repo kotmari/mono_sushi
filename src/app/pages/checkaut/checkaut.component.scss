@@ -13,7 +13,7 @@
     line-height: 1.2em;
     font-weight: 800;
     text-align: center;
-    
+
 }
 
 hr{
@@ -50,7 +50,7 @@ hr{
 
 
 .form_check{
-    
+
 }
 
 .num{
@@ -67,4 +67,20 @@ hr{
 .title{
     font-size: 26px;
     font-weight: 900;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+
+}
+
+.mat-mdc-checkbox label{
+  font-size: 20px;
+}
+
+.example-margin {
+  margin: 0 10px;
 }

@@ -10,17 +10,17 @@ import { AccountService } from 'src/app/shared/services/account/account.service'
 export class CabinetComponent implements OnInit {
 
 
-  
+
   constructor(
     private router: Router,
     private accountService: AccountService
   ){}
 
   ngOnInit(): void {
-    
+
   }
   logout(): void{
-    this.router.navigate(['/']);
+    this.router.navigate(['home']);
     localStorage.removeItem('currentUser');
     this.accountService.isUserLogin$.next(true);
   }
