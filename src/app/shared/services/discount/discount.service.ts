@@ -14,7 +14,7 @@ export class DiscountService {
 
   constructor( private http: HttpClient) { }
 
-  
+
   getAll(): Observable<IDiscountResponse[]> {
     return this.http.get<IDiscountResponse[]>(this.api.discounts);
   }
@@ -26,7 +26,7 @@ export class DiscountService {
     return this.http.post<IDiscountResponse>(this.api.discounts, discount);
   }
 
-  update(discount: IDiscountResponse, id: number): Observable <IDiscountResponse>{
+  update(discount: IDiscountRequest, id: number): Observable <IDiscountResponse>{
     return this.http.patch<IDiscountResponse> (`${this.api.discounts}/${id}`, discount)
   }
 

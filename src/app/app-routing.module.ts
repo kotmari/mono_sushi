@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/guards/auth/auth.guard';
 
 const routes: Routes = [
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'payment',
     loadChildren: () => import('./pages/payment/payment.module').then(m => m.PaymentModule)
   },
-  { path: 'product',
+  { path: 'product/:category',
     loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule)
   },
   { path: 'about',

@@ -19,7 +19,7 @@
       </ul>
       <ul class="menu__list">
         <li class="nav__item" *ngFor="let category of navCategory">
-          <a [routerLink]="['/product/'+ category.path]" routerLinkActive="rout-active" href="#" class ="card__box"
+          <a [routerLink]="['/product/'+category.path]" routerLinkActive="rout-active" href="#" class ="card__box"
             ><div class="card">
               <img class="nav-img"
                 [src]="category.imagePath" [alt]="category.name"

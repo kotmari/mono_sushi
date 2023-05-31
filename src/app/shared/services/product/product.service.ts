@@ -34,8 +34,10 @@ export class ProductService {
     return this.http.patch<IProductResponse>(`${this.api.products}/${id}`, product)
   }
 
-  delete(id:number): Observable<void>{
-    return this.http.delete<void>(`${this.api.products}/${id}`);
+  delete(id:number): Observable<IProductResponse>{
+    return this.http.delete<IProductResponse>(`${this.api.products}/${id}`);
   }
+
+
 
 }

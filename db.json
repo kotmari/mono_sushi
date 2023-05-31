@@ -31,7 +31,7 @@
     },
     {
       "name": "Сети",
-      "path": "setu",
+      "path": "sets",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=e685f017-06eb-41d7-8d8b-c9a4cc381b1b",
       "id": 2
     },
@@ -100,18 +100,50 @@
     {
       "category": {
         "name": "Сети",
-        "path": "setu",
+        "path": "sets",
         "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=e685f017-06eb-41d7-8d8b-c9a4cc381b1b",
         "id": 2
       },
       "name": "Сет Філадельфія",
-      "path": "setu",
+      "path": "sets",
       "description": " Філадельфія: з лососем/в кунжуті/з тунцем/з вугрем",
       "weight": "1070г",
       "price": 1075,
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/image%2Fimgonline-com-ua-compressed-jknw6idh54664-scaled.jpg?alt=media&token=ace34292-f6da-4ce4-8c52-9702af4062b9",
       "count": 1,
       "id": 4
+    },
+    {
+      "category": {
+        "name": "Напої",
+        "path": "drinks",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=1d114720-84c4-43d4-8b0c-04730ce126e2",
+        "id": 3
+      },
+      "name": "Pepsi",
+      "path": "drinks",
+      "description": ".",
+      "weight": "0.33",
+      "price": 35,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/image%2Fpepsicola.jpg?alt=media&token=7ec584fd-c714-4733-8e0f-35703f23ecba",
+      "count": 1,
+      "id": 5
+    },
+    {
+      "category": {
+        "name": "Соуси",
+        "path": "sousi",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/images%2Ficon-sous.svg?alt=media&token=a8b94998-7fc6-4c6e-a2ca-d5bcfe9a3154",
+        "id": 4
+      },
+      "name": "Васабі",
+      "path": "sousi",
+      "description": ".",
+      "weight": "25 г",
+      "price": 12,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-44b41.appspot.com/o/image%2F4444.png.pagespeed.ce.eju3nbNNBX.png?alt=media&token=f83d4557-093b-4f7b-ae7a-93f3e9383511",
+      "count": 1,
+      "id": 6
     }
   ],
   "auth": [

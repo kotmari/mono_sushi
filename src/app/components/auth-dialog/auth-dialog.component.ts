@@ -22,6 +22,7 @@ export class AuthDialogComponent implements OnInit {
   public checkPassword = false;
   public isLogin = false;
 
+
   constructor (
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<AuthDialogComponent>,

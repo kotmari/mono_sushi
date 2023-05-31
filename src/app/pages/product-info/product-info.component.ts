@@ -12,7 +12,7 @@ import { OrderService } from "../../shared/services/order/order.service";
 })
 export class ProductInfoComponent implements OnInit{
   public currentProduct!: IProductResponse;
-  public currentCategoryName!: string;
+
 
   constructor (
     private productService: ProductService,
@@ -23,17 +23,9 @@ export class ProductInfoComponent implements OnInit{
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(response => {
       this.currentProduct = response['productInfo'];
-      this.currentCategoryName = this.currentProduct.category.name;
-    })
-
-  }
-
-  loadProduct(): void {
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.productService.getOne(id).subscribe(data => {
-      this.currentProduct = data;
     })
   }
+
 
   productCount(product: IProductResponse, value: boolean): void{
     if(value){

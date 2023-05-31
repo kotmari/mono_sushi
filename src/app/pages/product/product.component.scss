@@ -36,6 +36,7 @@ li a {
 
 .card_product{
     height: 100%;
+    min-height: 350px;
     margin: 10px;
     transition: 0.35s;
     position: relative;
@@ -52,14 +53,14 @@ li a {
             display: block;
             height: 100%;
         }
-        
+
 
     }
 
     .product_title-wrap{
         display: flex;
         justify-content: space-between;
-        margin: 10px 0;         
+        margin: 10px 0;
 
         .product_title a {
             max-height: 3em;

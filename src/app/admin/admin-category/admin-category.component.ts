@@ -16,8 +16,8 @@ export class AdminCategoryComponent implements OnInit {
   public addForms = false;
   public isUploaded =false;
   public editStatus= false;
-  private currentCategoryId = 0;
-  
+  public currentCategoryId = 0;
+
 
   public categoryForm!: FormGroup;
 
@@ -64,7 +64,7 @@ export class AdminCategoryComponent implements OnInit {
     this.addForms = false;
     this.categoryForm.reset();
     this.isUploaded=false;
-    
+
   }
 
   editCategory(category: ICategoryResponse):void{

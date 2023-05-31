@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HeaderComponent } from './components/header/header.component';
+
 import { FooterComponent } from './components/footer/footer.component';
 
 
@@ -23,6 +24,7 @@ import { AuthDialogComponent } from './components/auth-dialog/auth-dialog.compon
 import { SharedModule } from './shared/shared.module';
 import { BasketDialogComponent } from './components/basket-dialog/basket-dialog.component';
 import { PhoneDialogComponent } from './components/phone-dialog/phone-dialog.component';
+import { HeaderComponent } from "./components/header/header.component";
 
 
 @NgModule({
@@ -38,6 +40,7 @@ import { PhoneDialogComponent } from './components/phone-dialog/phone-dialog.com
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     ToastrModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

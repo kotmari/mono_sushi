@@ -4,7 +4,8 @@
       <a [routerLink]="['/home']" routerLinkActive="rout-active">
         <li class="list-inline-item me-3">Головна</li>
       </a>
-      <li class="list-inline-item me-3" [routerLink]="['/product/' + currentProduct.category.path]" routerLinkActive="rout-active" >&bull; {{ currentProduct.category.name}}</li>
+      <li class="list-inline-item me-3" [routerLink]="['/product/'+currentProduct.category.path]"
+          routerLinkActive="rout-active" >&bull; {{ currentProduct.category.name}}</li>
       <li class="list-inline-item">&bull; {{ currentProduct.name }}</li>
     </ul>
   </div>

@@ -15,6 +15,7 @@ export class ProductComponent implements OnInit, OnDestroy{
   public userProduct: Array <IProductResponse> = [];
   private eventSubscription!: Subscription;
   public currentCategoryName!: string;
+  public categoryName!: string;
 
     constructor (
     private productService: ProductService,
@@ -37,17 +38,15 @@ export class ProductComponent implements OnInit, OnDestroy{
   }
 
   loadProduct(): void{
-    const categoryName = this.activatedRoute.snapshot.paramMap.get('category') as string;
-    this.productService.getAllByCategory(categoryName).subscribe(date => {
+    this.categoryName = this.activatedRoute.snapshot.paramMap.get('category') as string;
+    this.productService.getAllByCategory(this.categoryName).subscribe(date => {
       this.userProduct = date;
-      this.currentCategoryName = this.userProduct[0].category.name;
     })
   }
 
   productCount(product: IProductResponse, value: boolean): void{
     if(value){
       ++product.count;
-      console.log(product.count)
     } else if (!value && product.count > 1){
       --product.count;
     }

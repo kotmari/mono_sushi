@@ -6,10 +6,10 @@
        <input formControlName="name" type="text" class="form-control w-50" id="exampleFormControlInput1" placeholder="Введіть назву">
      </div>
      <div class="mb-3">
-       <label for="exampleFormControlInput1" class="form-label">Заголовок</label>
-       <input formControlName="path" type="" class="form-control w-50" id="exampleFormControlInput1" placeholder="Введіть заголовок">
+       <label for="exampleFormControlInput" class="form-label">Заголовок</label>
+       <input formControlName="path" type="text" class="form-control w-50" id="exampleFormControlInput" placeholder="Введіть заголовок">
      </div>
-  
+
      <ng-container *ngIf="!isUploaded">
        <div class="mb-3">
          <label for="formFile" class="form-label"
@@ -20,7 +20,7 @@
            type="file"
            id="formFile"
            (change)="upload($event)"
-          
+
          />
        </div>
      </ng-container>

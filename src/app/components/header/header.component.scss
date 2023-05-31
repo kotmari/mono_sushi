@@ -1,4 +1,8 @@
-@import "../../shared/style/_variables";
+@import '../../shared/style/_variables';
+
+header{
+  z-index: 50;
+}
 
 .header__inner {
   width: 100%;

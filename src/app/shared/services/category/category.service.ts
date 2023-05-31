@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { ICategoryRequst, ICategoryResponse } from '../../interface/category/categori.interface';
+import { ICategoryRequest, ICategoryResponse } from '../../interface/category/categori.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,16 +15,16 @@ export class CategoryService {
   constructor(
     private http: HttpClient
   ) { }
-  
+
   getAll(): Observable<ICategoryResponse[]>{
     return this.http.get<ICategoryResponse[]>(this.api.categories)
   }
 
-  create(category: ICategoryRequst): Observable<ICategoryResponse>{
+  create(category: ICategoryRequest): Observable<ICategoryResponse>{
     return this.http.post<ICategoryResponse>(this.api.categories, category);
   }
 
-  update(category: ICategoryRequst, id: number): Observable<ICategoryResponse>{
+  update(category: ICategoryRequest, id: number): Observable<ICategoryResponse>{
     return this.http.patch<ICategoryResponse>(`${this.api.categories}/${id}`, category);
   }
 

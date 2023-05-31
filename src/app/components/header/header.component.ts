@@ -5,7 +5,6 @@ import { IProductResponse } from 'src/app/shared/interface/product/product.inter
 import { AccountService } from 'src/app/shared/services/account/account.service';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
-import { ProductService } from '../../shared/services/product/product.service';
 import { Router } from '@angular/router';
 import { BasketDialogComponent } from '../basket-dialog/basket-dialog.component';
 import { ICategoryResponse } from '../../shared/interface/category/categori.interface';
@@ -30,7 +29,6 @@ export class HeaderComponent implements  OnInit{
   public loginPage = '';
 
   constructor(
-    private productService: ProductService,
     private categoryService: CategoryService,
     private orderService: OrderService,
     private accountService: AccountService,
@@ -50,7 +48,6 @@ export class HeaderComponent implements  OnInit{
 
   loadNavCategory():void{
     this.categoryService.getAll().subscribe((data) => {
-      console.log(data);
       this.navCategory = data;
     })
   }
@@ -120,14 +117,13 @@ export class HeaderComponent implements  OnInit{
   openDialogBasket(): void {
     const dialogConfig = new MatDialogConfig();
     const position: DialogPosition = {
-      top: '80px',
+      top: '95px',
       right: '0'
     };
     dialogConfig.position = position;
     dialogConfig.backdropClass = 'dialog-back';
     dialogConfig.panelClass = 'basket-dialog';
     dialogConfig.autoFocus = false;
-
     this.dialog.open(BasketDialogComponent, dialogConfig);
   }
 
@@ -140,8 +136,4 @@ export class HeaderComponent implements  OnInit{
       console.log(result);
     })
   }
-
-
-
-
   }

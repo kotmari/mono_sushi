@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
@@ -23,7 +23,7 @@ const MATERIAL = [
     MatCardModule,
     MatButtonToggleModule,
     MatTableModule,
-  MatCheckboxModule
+    MatCheckboxModule
 
 ];
 
@@ -33,13 +33,13 @@ const MATERIAL = [
         ...MATERIAL,
       FormsModule,
       ReactiveFormsModule,
-      HttpClientModule
+
     ],
     exports: [
         ...MATERIAL,
       FormsModule,
       ReactiveFormsModule,
-      HttpClientModule
+
     ]
 })
 export class SharedModule {}
