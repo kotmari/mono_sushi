@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ICategoryResponse } from 'src/app/shared/interface/category/categori.interface';
 import { CategoryService } from 'src/app/shared/services/category/category.service';
-import { deleteObject, getDownloadURL, percentage, ref, Storage, uploadBytesResumable } from '@angular/fire/storage';
+import { deleteObject, getDownloadURL, ref, Storage, uploadBytesResumable } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-admin-category',
@@ -16,9 +16,7 @@ export class AdminCategoryComponent implements OnInit {
   public addForms = false;
   public isUploaded =false;
   public editStatus= false;
-  public currentCategoryId = 0;
-
-
+  public currentCategoryId!: string;
   public categoryForm!: FormGroup;
 
   constructor(
@@ -40,8 +38,8 @@ export class AdminCategoryComponent implements OnInit {
   }
 
   loadCategories(): void{
-    this.categoryService.getAll().subscribe(data => {
-      this.adminCategories = data;
+    this.categoryService.getAllFirebase().subscribe(data => {
+      this.adminCategories = data as ICategoryResponse[];
     })
   }
 
@@ -52,11 +50,11 @@ export class AdminCategoryComponent implements OnInit {
 
   addCategory():void{
     if (this.editStatus){
-      this.categoryService.update(this.categoryForm.value, this.currentCategoryId).subscribe(()=>{
+      this.categoryService.updateFirebase(this.categoryForm.value, this.currentCategoryId).then(()=>{
         this.loadCategories();
       })
     } else{
-      this.categoryService.create(this.categoryForm.value).subscribe(()=>{
+      this.categoryService.createFirebase(this.categoryForm.value).then(()=>{
         this.loadCategories();
       });
     }
@@ -80,7 +78,7 @@ export class AdminCategoryComponent implements OnInit {
   }
 
   deleteCategory(category: ICategoryResponse): void{
-    this.categoryService.delete(category.id).subscribe(()=>{
+    this.categoryService.deleteFirebase(category.id).then(()=>{
       this.loadCategories();
     })
   }

@@ -50,6 +50,10 @@ hr{
 
 
 .form_check{
+  width: 70%;
+  .mat-mdc-form-field {
+    width: 46%;
+  }
 
 }
 
@@ -84,3 +88,5 @@ hr{
 .example-margin {
   margin: 0 10px;
 }
+
+

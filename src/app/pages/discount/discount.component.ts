@@ -14,17 +14,17 @@ export class DiscountComponent implements OnInit{
 
   constructor(
     private discountService: DiscountService
-    
+
     ) {}
 
   ngOnInit(): void {
     this.getDiscount();
-  
+
   }
 
   getDiscount():void{
-    this.discountService.getAll().subscribe(date =>{
-      this.userDiscounts = date;
+    this.discountService.getAllFirebase().subscribe(date =>{
+      this.userDiscounts = date as IDiscountResponse[];
     })
   }
 }

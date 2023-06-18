@@ -5,12 +5,14 @@ import { IProductResponse } from "../../shared/interface/product/product.interfa
 import { ProductService } from "../../shared/services/product/product.service";
 import { OrderService } from "../../shared/services/order/order.service";
 
+
 @Component({
   selector: 'app-product-info',
   templateUrl: './product-info.component.html',
   styleUrls: ['./product-info.component.scss']
 })
 export class ProductInfoComponent implements OnInit{
+
   public currentProduct!: IProductResponse;
 
 
@@ -21,9 +23,14 @@ export class ProductInfoComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(response => {
-      this.currentProduct = response['productInfo'];
-    })
+   this.getOneProduct()
+  }
+
+  getOneProduct(): void{
+    const PRODUCT_ID = this.activatedRoute.snapshot.paramMap.get('id');
+    this.productService.getOneFirebase(PRODUCT_ID as string).subscribe(data=>{
+      this.currentProduct = data as IProductResponse;
+    });
   }
 
 

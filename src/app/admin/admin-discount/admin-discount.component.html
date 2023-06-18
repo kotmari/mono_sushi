@@ -6,8 +6,8 @@
      <input formControlName="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Введіть назву">
    </div>
    <div class="mb-3">
-     <label for="exampleFormControlInput1" class="form-label">Заголовок</label>
-     <input formControlName="title" type="" class="form-control" id="exampleFormControlInput1" placeholder="Введіть заголовок">
+     <label for="exampleFormControlInput2" class="form-label">Заголовок</label>
+     <input formControlName="title" type="" class="form-control" id="exampleFormControlInput2" placeholder="Введіть заголовок">
    </div>
    <div class="mb-3">
      <label for="exampleFormControlTextarea1" class="form-label">Опис</label>
@@ -23,7 +23,7 @@
          type="file"
          id="formFile"
          (change)="upload($event)"
-        
+
        />
      </div>
    </ng-container>
@@ -56,7 +56,7 @@
         <td>{{date | date:' dd.MM.YYYY '}}</td>
         <td>{{discount.name}}</td>
         <td>{{discount.title}}</td>
-        <td>{{discount.description}}</td>
+        <td>{{discount.description | slice:0:40}}</td>
         <td>
           <img [src]="discount.imagePath" alt="" height="50px" />
         </td>

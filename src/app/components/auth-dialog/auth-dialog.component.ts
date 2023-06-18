@@ -61,6 +61,7 @@ export class AuthDialogComponent implements OnInit {
     const { email, password } =  this.loginForm.value;
     this.login(email, password).then(() => {
       this.toastr.info('User successfully login');
+      console.log(email, password)
       this.dialogRef.close();
     }).catch(e => {
       this.toastr.error(e.message);
@@ -91,9 +92,10 @@ export class AuthDialogComponent implements OnInit {
       this.isLogin = !this.isLogin;
       this.registerForm.reset();
     }).catch(e => {
-      this.toastr.error(e.message);
+      this.toastr.error('not', e.message);
     })
   }
+
 
  async emailSignUp(email: string, password: string): Promise<any> {
   const credential = await createUserWithEmailAndPassword(this.auth, email, password);
@@ -101,13 +103,16 @@ export class AuthDialogComponent implements OnInit {
     email: credential.user.email,
     firstName: this.registerDate.firstName,
     lastName: this.registerDate.lastName,
-    phoneNumber: this.registerDate.phone,
+    phoneNumber: this.registerDate.phoneNumber,
     address: '',
     orders: [],
     role: 'USER'
   };
   setDoc(doc(this.afs, 'users', credential.user.uid), user);
  }
+
+
+
 
  changeForm(): void{
   this.isLogin = !this.isLogin;
@@ -119,9 +124,7 @@ export class AuthDialogComponent implements OnInit {
       this.registerForm.controls['confirmedPassword'].setErrors({
         matchError: 'Password confirmation doesnt match'
       })
-      console.log(this.checkPassword)
     }
-    console.log(this.checkPassword)
  }
 
  get password(): AbstractControl{

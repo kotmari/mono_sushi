@@ -15,9 +15,9 @@ describe('BasketDialogComponent', () => {
   let orderService: OrderService;
   let productService: ProductService;
   const products: IProductResponse[] = [{
-    id: 1,
+    id: '1',
     category: {
-      id: 2,
+      id:'2',
       name: 'rolls',
       path: 'roll',
       imagePath: 'category.jpg'
@@ -31,9 +31,9 @@ describe('BasketDialogComponent', () => {
     count: 5
   },
     {
-      id: 1,
+      id:'1',
       category: {
-        id: 2,
+        id: '2',
         name: 'rolls',
         path: 'roll',
         imagePath: 'category.jpg'
@@ -81,9 +81,9 @@ describe('BasketDialogComponent', () => {
 
   it('should decrease product count and update the basket', () => {
     const product: IProductResponse = {
-      id: 1,
+      id: '1',
       category: {
-        id: 2,
+        id: '2',
         name: 'rolls',
         path: 'roll',
         imagePath: 'category.jpg'
@@ -118,9 +118,9 @@ describe('BasketDialogComponent', () => {
 
   it('should increase product count and update the basket', () => {
     const product: IProductResponse = {
-      id: 1,
+      id: '1',
       category: {
-        id: 2,
+        id: '2',
         name: 'rolls',
         path: 'roll',
         imagePath: 'category.jpg'
@@ -148,9 +148,9 @@ describe('BasketDialogComponent', () => {
 
   it('should not decrease product count if count is already 1', () => {
     const product: IProductResponse = {
-      id: 1,
+      id: '1',
       category: {
-        id: 2,
+        id: '2',
         name: 'rolls',
         path: 'roll',
         imagePath: 'category.jpg'
@@ -177,9 +177,9 @@ describe('BasketDialogComponent', () => {
 
   it('should delete a product from the basket', () => {
     const product: IProductResponse = {
-      id: 1,
+      id: '1',
       category: {
-        id: 2,
+        id: '2',
         name: 'rolls',
         path: 'roll',
         imagePath: 'category.jpg'

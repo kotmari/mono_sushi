@@ -21,8 +21,7 @@ export class AdminProductComponent implements OnInit {
   public editStatus = false;
   public uploadPercent = 0;
   public isUploaded = false;
-  private currentProductId =0;
-
+  private currentProductId!: string;
   public productForm!: FormGroup;
 
   constructor(
@@ -38,7 +37,7 @@ export class AdminProductComponent implements OnInit {
     this.initProductForm();
     this.loadCategories();
     this.loadProduct();
-    
+
   }
 
   initProductForm(): void{
@@ -55,14 +54,15 @@ export class AdminProductComponent implements OnInit {
   }
 
   loadCategories(): void{
-    this.categoryService.getAll().subscribe(date =>{
-      this.adminCategories = date;
+    this.categoryService.getAllFirebase().subscribe(date =>{
+      console.log(date)
+      this.adminCategories = date as ICategoryResponse[];
     })
   }
 
   loadProduct(): void{
-    this.productService.getAll().subscribe(date => {
-      this.adminProducts = date;
+    this.productService.getAllFirebase().subscribe(date => {
+      this.adminProducts = date as IProductResponse[];
       this.productForm.patchValue({
         category: this.adminCategories[0].id
       })
@@ -71,14 +71,14 @@ export class AdminProductComponent implements OnInit {
 
   addProduct():void{
     if (this.editStatus){
-      this.productService.update(this.productForm.value, this.currentProductId).subscribe(() => {
+      this.productService.updateFirebase(this.productForm.value, this.currentProductId).then(() => {
         this.loadProduct();
         this.isOpen=false;
         this.editStatus = false;
         this.toastr.success('Product successfully updated');
        })
     } else{
-      this.productService.create(this.productForm.value).subscribe(() => {
+      this.productService.createFirebase(this.productForm.value).then(() => {
         this.loadProduct();
         this.isOpen=false;
         this.editStatus = false;
@@ -104,7 +104,7 @@ export class AdminProductComponent implements OnInit {
   }
 
   deleteProduct(product: IProductResponse):void{
-    this.productService.delete(product.id).subscribe(()=>{
+    this.productService.deleteFirebase(product.id).then(()=>{
       this.loadProduct();
       this.toastr.success('Product successfully deleted');
     })

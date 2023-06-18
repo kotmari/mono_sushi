@@ -1,35 +1,49 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment.development';
-import { ICategoryRequest, ICategoryResponse } from '../../interface/category/categori.interface';
+import { ICategoryRequest } from '../../interface/category/categori.interface';
+import {
+  collectionData,
+  CollectionReference,
+  doc,
+  Firestore, updateDoc
+} from "@angular/fire/firestore";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  DocumentData,
+} from '@firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
 
-  private url = environment.BACKEND_URL;
-  private api = {categories: `${this.url}/categories`}
+  private categoryCollection!: CollectionReference<DocumentData>;
 
   constructor(
-    private http: HttpClient
-  ) { }
-
-  getAll(): Observable<ICategoryResponse[]>{
-    return this.http.get<ICategoryResponse[]>(this.api.categories)
+    private http: HttpClient,
+    private afs: Firestore
+  ) {
+    this.categoryCollection = collection(this.afs, 'categories');
   }
 
-  create(category: ICategoryRequest): Observable<ICategoryResponse>{
-    return this.http.post<ICategoryResponse>(this.api.categories, category);
+  getAllFirebase(){
+    return collectionData(this.categoryCollection, {idField: 'id'});
   }
 
-  update(category: ICategoryRequest, id: number): Observable<ICategoryResponse>{
-    return this.http.patch<ICategoryResponse>(`${this.api.categories}/${id}`, category);
+  createFirebase(category: ICategoryRequest){
+    return addDoc(this.categoryCollection, category);
   }
 
-  delete(id: number): Observable<ICategoryResponse>{
-    return this.http.delete<ICategoryResponse>(`${this.api.categories}/${id}`);
+  updateFirebase(category: ICategoryRequest, id: string) {
+    const categoryDocumentReference = doc(this.afs, `categories/${id}`);
+    return updateDoc(categoryDocumentReference, {...category});
+  }
+
+  deleteFirebase(id: string){
+    const categoryDocumentReference = doc(this.afs, `categories/${id}`);
+    return deleteDoc(categoryDocumentReference);
   }
 
 

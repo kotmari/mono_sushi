@@ -4,8 +4,19 @@
 </section>
 
 <div class="container m-auto">
-    <div class="row mt-4">
+    <div class="row mt-4" >
         <hr>
+      <div class="d-flex flex-column justify-content-center" *ngIf= "checkouts.length === 0">
+          <div class="card text-center">
+            <div class="card-header"></div>
+            <div class="card-body">
+              <h1 class="fs-3">
+                Кошик порожній :)
+              </h1>
+            </div>
+            <div class="card-footer text-muted"></div>
+          </div>
+      </div>
         <div class="d-flex flex-column justify-content-center" *ngIf= "checkouts.length > 0">
             <ng-container  *ngFor="let checkout of checkouts">
               <div class="d-flex flex-row m-auto mb-3 align-items-center justify-content-around">
@@ -29,106 +40,85 @@
             <input style="width: 225px;" placeholder="Введіть промокот....">
             <button type="button" class="btn btn_check">ЗАСТОСУВАТИ</button>
           </div>
-          <div class="form_check m-auto mt-5  row col-8">
+          <form class="form_check m-auto mt-5  row col-8" [formGroup]="orderForm">
             <div class="d-flex">
                 <p class="num me-3"><span>1</span></p>
                 <p class="title">Оберіть кількість приборів</p>
             </div>
-            <div class="d-flex mt-4 mb-3">
-                <select class="form-select me-5" aria-label="Default select example">
-                    <option selected>Кількість приборів</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                  </select>
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Навчальні прибори</option>
-                    <option value="1">0</option>
-                    <option value="2">1</option>
-                    <option value="3">2</option>
-                  </select>
+            <div class="d-flex justify-content-around mt-4 mb-3">
+              <mat-form-field appearance="outline">
+                <mat-select formControlName="countDevices" placeholder="Виберіть кількість приборів...">
+                  <mat-option value="1">1</mat-option>
+                  <mat-option value="2">2</mat-option>
+                  <mat-option value="3">3</mat-option>
+                  <mat-option value="4">4</mat-option>
+                </mat-select>
+
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-select formControlName="devices"  placeholder="Виберіть прибори...">
+                  <mat-option value="Звичайні прибори">Звичайні прибори</mat-option>
+                  <mat-option value="Навчальні прибори">Навчальні прибори</mat-option>
+                </mat-select>
+              </mat-form-field>
             </div>
             <div class="d-flex mt-4">
                 <p class="num me-3"><span>2</span></p>
                 <p class="title">Оберіть спосіб оплати</p>
             </div>
             <div class="form-check d-flex m-auto mt-4">
-              <section class="example-section">
-                <mat-checkbox class="example-margin">Оплата готівкою</mat-checkbox>
-                <mat-checkbox class="example-margin">Безготівкова оплата</mat-checkbox>
-              </section>
+              <mat-form-field appearance="outline">
+                <mat-select formControlName="cash" placeholder="Виберіть спосіб оплати...">
+                  <mat-option value="Оплата готівкою">Оплата готівкою
+                  </mat-option>
+                  <mat-option value="Безготівкова оплата">Безготівкова оплата</mat-option>
+                </mat-select>
+              </mat-form-field>
               </div>
               <div class="d-flex mt-4">
                 <p class="num me-3"><span>3</span></p>
                 <p class="title">Спосіб доставки</p>
             </div>
             <div class="form-check m-auto mt-4">
-              <input class="form-check-input mb-4" type="checkbox" value="" >
-              <label class="form-check-label me-3" style="height: 50px ;" for="flexCheckDefault">
-                Доставка (У зв’язку із відключенням світла, якщо ліфт не працює
-                кур’єр піднімається тільки до п’ятого поверху. Дякуємо за розуміння)
-              </label>
-              <input class="form-check-input mb-5" type="checkbox" value=""  checked>
-              <label class="form-check-label mb-5" for="flexCheckChecked">
-                Самовивіз ( "Запечені моно макі з лососем" в подарунок )
-              </label>
-              <input class="form-check-input mt-3" type="checkbox"  checked>
-              <label class="form-check-label me-3" for="flexCheckChecked">
-                Заздалегідь
-              </label>
-            </div>
-            <hr>
-            <form class="row g-3 mb-3">
-              <div class="col-md-6">
-                <label for="full_name" class="form-label">Ім'я</label>
-                <input type="text" class="form-control" id="full_name">
+              <mat-form-field appearance="outline">
+                <mat-select formControlName="delivery" placeholder="Виберіть спосіб доставки...">
+                  <mat-option value="Доставка курьєром">Доставка курьєром
+                  </mat-option>
+                  <mat-option value="Самовивіз">Самовивіз</mat-option>
+                </mat-select>
+              </mat-form-field>
               </div>
-              <div class="col-md-6">
-                <label for="phone" class="form-label">телефон</label>
-                <input type="text" class="form-control" id="phone">
-              </div>
-              <div class="col-md-6">
-                <label for="address" class="form-label">Вулиця</label>
-                <input type="text" class="form-control" id="address">
-              </div>
-              <div class="col-md-6">
-                <label for="address2" class="form-label">номер будинку</label>
-                <input type="text" class="form-control" id="address2" >
-              </div>
-              <div class="col-md-6">
-                <label for="pd" class="form-label">Підїзд</label>
-                <input type="text" class="form-control" id="pd">
-              </div>
-              <div class="col-md-6">
-                <label for="room" class="form-label">Квартира</label>
-                <input type="text" class="form-control" id="room">
-              </div>
-            </form>
-            <hr>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault">
               <label class="form-check-label" for="flexCheckDefault">
                 Зателефонуйте мені для уточнення деталей
               </label>
             </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value=""  checked>
-              <label class="form-check-label" for="flexCheckChecked">
-                Додати коментар
-              </label>
+             <hr class="mt-3">
+            <div class="row g-3 m-xl-auto">
+              <div class="col-5">
+                <label for="name" class="form-label fs-5">Призвіще</label >
+                <input type="text" class="form-control" id="name" formControlName="firstName">
+              </div>
+              <div class="col-5">
+                <label for="full_name" class="form-label fs-5">Ім'я</label >
+                <input type="text" class="form-control" id="full_name" formControlName="lastName">
+              </div>
+              <div class="col-5">
+                <label for="phone" class="form-label fs-5">телефон</label>
+                <input type="text" class="form-control" id="phone" formControlName="phone">
+              </div>
+              <div class="col-5 mb-3">
+                <label for="address" class="form-label fs-5">Ваша адреса</label>
+                <input type="text" class="form-control" id="address" formControlName="address">
+              </div>
             </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-              <label class="form-check-label" for="flexCheckChecked">
-                Додати коментар для кухні
-              </label>
-            </div>
+            <hr>
             <div class="btn-group mt-4 m-auto" style="width: 40%;">
-              <button type="button" class="btn btn_check">ОФОРМИТИ ЗАМОВЛЕННЯ</button>
+              <button type="button" class="btn btn_check" (click)="ordersData()">ОФОРМИТИ ЗАМОВЛЕННЯ</button>
             </div>
-          </div>
-
-        </div>
+          </form>
+     </div>
     </div>
+
 

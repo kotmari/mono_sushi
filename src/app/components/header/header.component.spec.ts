@@ -11,9 +11,9 @@ describe('HeaderComponent', () => {
   let fixture: ComponentFixture<HeaderComponent>;
   const FAKE_BASKET: IProductResponse[] = [
     {
-      id:1,
+      id:'1',
       category:{
-        id: 2,
+        id: '2',
         name: 'www',
         path: 'string',
         imagePath: 'string'

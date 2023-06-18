@@ -12,6 +12,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from "@angular/material/select";
+
 
 
 const MATERIAL = [
@@ -23,7 +25,8 @@ const MATERIAL = [
     MatCardModule,
     MatButtonToggleModule,
     MatTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSelectModule,
 
 ];
 

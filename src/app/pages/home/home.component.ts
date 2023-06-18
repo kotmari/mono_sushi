@@ -32,8 +32,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   getAllProduct():void{
-    this.productService.getAll().subscribe(date =>{
-      this.allProduct = date;
+    this.productService.getAllFirebase().subscribe(date =>{
+      this.allProduct = date as IProductResponse[];
     })
   }
 

@@ -12,8 +12,8 @@ describe('DiscountComponent', () => {
 
   // Declare the fakeDiscounts variable here
   const fakeDiscounts = [
-    { id: 1, name: 'Discount 1', title: 'test', description: 'test', imagePath: 'test.j' },
-    { id: 2, name: 'Discount 2', title: 'test', description: 'test', imagePath: 'test.j' },
+    { id: '1', name: 'Discount 1', title: 'test', description: 'test', imagePath: 'test.j' },
+    { id: '2', name: 'Discount 2', title: 'test', description: 'test', imagePath: 'test.j' },
   ];
 
   beforeEach(async () => {
@@ -30,7 +30,7 @@ describe('DiscountComponent', () => {
     discountService = TestBed.inject(DiscountService);
 
     // Spy on the getAll method and return a fake observable
-    spyOn(discountService, 'getAll').and.returnValue(of(fakeDiscounts));
+    spyOn(discountService, 'getAllFirebase').and.returnValue(of(fakeDiscounts));
 
     // Trigger ngOnInit to initialize the component
     component.ngOnInit();

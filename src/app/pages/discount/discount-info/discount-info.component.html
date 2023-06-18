@@ -4,7 +4,6 @@
           <a [routerLink]="['/home']" routerLinkActive="rout-active">
             <li class="list-inline-item me-3">Головна</li>
           </a>
-<!--            <li class="list-inline-item me-3" [routerLink]="['/home']" routerLinkActive="rout-active" >Головна</li>-->
             <li class="list-inline-item me-3" [routerLink]="['/discount']" routerLinkActive="rout-active" >&bull; Акції</li>
             <li class="list-inline-item">&bull; {{ discount.name }} </li>
         </ul>
@@ -14,7 +13,7 @@
             <img [src]="discount.imagePath" class="card-img-top" alt="discount.name">
 
             <div class="card-body text-left">
-                <p>{{discount.description}}</p>
+                <p [innerHTML]="discount.description"></p>
             </div>
         </div>
     </div>

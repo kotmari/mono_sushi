@@ -33,9 +33,9 @@ describe('ProductComponent', () => {
   });
   it('should increase product count when value is true', () => {
     const product: IProductResponse = {
-      id: 1,
+      id: '1',
       category: {
-        id: 2,
+        id: '2',
         name: 'rolls',
         path: 'roll',
         imagePath: 'category.jpg'
@@ -54,9 +54,9 @@ describe('ProductComponent', () => {
 
   it('should decrease product count when value is false and count is greater than 1', () => {
     const product: IProductResponse = {
-      id: 1,
+      id: '1',
       category: {
-        id: 2,
+        id: '2',
         name: 'rolls',
         path: 'roll',
         imagePath: 'category.jpg'
@@ -75,9 +75,9 @@ describe('ProductComponent', () => {
 
   it('should not decrease product count when value is false and count is 1', () => {
     const product: IProductResponse = {
-      id: 1,
+      id: '1',
       category: {
-        id: 2,
+        id: '2',
         name: 'rolls',
         path: 'roll',
         imagePath: 'category.jpg'

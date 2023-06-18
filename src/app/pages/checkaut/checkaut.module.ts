@@ -6,6 +6,7 @@ import { SharedModule } from '../../shared/shared.module';
 
 
 
+
 @NgModule({
   declarations: [
     CheckautComponent
@@ -13,7 +14,8 @@ import { SharedModule } from '../../shared/shared.module';
   imports: [
     CommonModule,
     CheckautRoutingModule,
-    SharedModule
+    SharedModule,
+
   ]
 })
 export class CheckautModule { }

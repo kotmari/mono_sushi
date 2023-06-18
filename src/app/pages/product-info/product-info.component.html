@@ -22,7 +22,7 @@
             <p class="card-text mb-3"><span>Склад: </span>{{ currentProduct.description }}</p>
             <p class="card-text mb-3"> <span>Вага: </span> {{currentProduct.weight}}</p>
             <div class="d-flex justify-content-space-between">
-              <h4 class="card-title pt-2 me-3">{{ currentProduct.price*currentProduct.count }}грн </h4>
+              <h4 class="card-title pt-2 me-3">{{ currentProduct.price * currentProduct.count }}грн </h4>
               <div class="btn-group me-3" role="group" aria-label="Basic example">
                 <button (click)="productCount(currentProduct, false)" type="button" class="btn btn-outline-primary">-</button>
                 <input type="text" class="form-control" [value]="currentProduct.count" style="width: 35px;">

@@ -1,19 +1,19 @@
 <div class="row">
-    <p><a class="btn btn-add mb-3" 
+    <p><a class="btn btn-add mb-3"
      (click)="toggleOpenForm()">Додати продукт</a></p>
         <ng-container *ngIf="isOpen">
          <div class="collapse" id="collapseExample" [ngClass]="{'show' : isOpen}">
                 <div class="col-12">
                     <form [formGroup]="productForm" (ngSubmit)="addProduct()">
-                       <div class="row"> 
+                       <div class="row">
                         <div class="col mb-2 me-2">
                             <label for="name" class="form-label">Категорія</label>
                             <select formControlName="category" class="form-select">
-                              <option [ngValue]="category" 
+                              <option [ngValue]="category"
                               *ngFor="let category of adminCategories">{{ category.name }}
                               </option>
                             </select>
-                        </div>           
+                        </div>
                          <div class="col mb-2 me-2">
                         <label for="name" class="form-label">Назва</label>
                         <input formControlName="name" name="name" type="text"
@@ -39,16 +39,12 @@
                            <label for="price" class="form-label">Ціна</label>
                            <input formControlName="price" name="price" type="number" class="form-control" id="price"/>
                         </div>
-                          
+
                            </div>
                           <ng-container *ngIf="!isUploaded">
                           <div class="mb-3">
                             <input class="form-control" type="file" (change)="uploadProduct($event)"/>
                           </div>
-                          <!-- <div class="progress mb-3" role="progressbar" aria-label="Default striped example"
-                            aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar progress-bar-striped" [style.width.%]="uploadPercent"></div>
-                          </div> -->
                         </ng-container>
                         <ng-container *ngIf="isUploaded">
                           <img [src]="valueByControl('imagePath')" width="100px" alt="" />
@@ -63,9 +59,9 @@
                   </div>
               </div>
         </ng-container>
-  
 
-     
+
+
     <div class="col-12">
       <table class="table table-hover">
         <thead class="" >
@@ -106,5 +102,5 @@
       </table>
     </div>
   </div>
-  
+
 

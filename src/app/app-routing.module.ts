@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/guards/auth/auth.guard';
 
 const routes: Routes = [
-  { path: 'home',
+  { path: '',
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
   { path: 'discount',

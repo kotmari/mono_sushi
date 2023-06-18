@@ -47,8 +47,8 @@ export class HeaderComponent implements  OnInit{
   }
 
   loadNavCategory():void{
-    this.categoryService.getAll().subscribe((data) => {
-      this.navCategory = data;
+    this.categoryService.getAllFirebase().subscribe((data) => {
+      this.navCategory = data as ICategoryResponse[];
     })
   }
 
@@ -117,7 +117,7 @@ export class HeaderComponent implements  OnInit{
   openDialogBasket(): void {
     const dialogConfig = new MatDialogConfig();
     const position: DialogPosition = {
-      top: '95px',
+      top: '80px',
       right: '0'
     };
     dialogConfig.position = position;

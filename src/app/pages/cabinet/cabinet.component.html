@@ -3,55 +3,20 @@
     <h2 class="discount">Особистий кабінет</h2>
 </section>
 
-<div class="container">
-    <div class="row">
-        <div class="col-4">
-            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                <button type="button" class="btn btn-add mb-4">Особисті дані</button>
-                <button type="button" class="btn btn-add mb-4">Замовлення</button>
-                <button type="button" class="btn btn-add mb-4">Зміна паролю</button>
-                <button (click)="logout()" type="button" class="btn btn-add">Вихід</button>
-              </div>
-        </div>
-        <div class="col-8 mt-5">
-          <div class="num">
-            <div class="num-page">1</div>
-            <h3>Особисті дані</h3>
-          </div>
+<div class="container col-12 nav">
+  <div class="d-flex align-items-start me-4">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <button [routerLink]="['about-user']"
+              routerLinkActive="rout-active" class="btn btn-add mb-4" type="button">Особисті дані</button>
+      <button [routerLink]="['order-personal']"
+              routerLinkActive="rout-active" class=" btn-add mb-4" type="button">Замовлення</button>
+      <button [routerLink]="['password-change']"
+              routerLinkActive="rout-active" class="btn btn-add mb-4" type="button">Зміна паролю</button>
+      <button (click)="logout()" class="btn btn-add mb-4" type="button">Вихід</button>
+    </div>
+    <div class="tab-content" id="v-pills-tabContent">
+      <router-outlet></router-outlet>
 
-          <form  >
-            <div class="form-group">
-                <mat-form-field appearance="fill">
-                    <mat-label>Ім'я</mat-label>
-                    <input matInput type="text"  placeholder="Введіть ім'я...">
-                  </mat-form-field>
-                  <mat-form-field appearance="fill">
-                    <mat-label>Призвище</mat-label>
-                    <input matInput type="text"  placeholder="Введіть призвище...">
-                  </mat-form-field>
-            </div>
-            <div class="form-group">
-                <mat-form-field appearance="fill">
-                    <mat-label>Номер телефона</mat-label>
-                    <input matInput type="tel"  placeholder="Введіть номет телефона...">
-                  </mat-form-field>
-            </div>
-            <div class="form-group">
-                <mat-form-field appearance="fill">
-                    <mat-label>Електронну адресу</mat-label>
-                    <input matInput type="email" placeholder="Enter email...">
-                  </mat-form-field>
-            </div>
-            <div class="num">
-              <div class="num-page">2</div>
-              <h3>Адреса</h3>
-            </div>
-            <div class="example-button-row">
-                <button mat-raised-button color="primary" >Змінити дані</button>
-                <button mat-raised-button color="primary" >Додати адресу</button>
-            </div>
-        </form>
-
-        </div>
-      </div>
+    </div>
+  </div>
 </div>
